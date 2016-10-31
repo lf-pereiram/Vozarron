@@ -1,19 +1,16 @@
 package co.edu.uniquindio.android.electiva.vozarron.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
+import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleEntrenadorFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaEntrenadoresFragment;
-import co.edu.uniquindio.android.electiva.vozarron.util.AdaptadorEntrenador;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Entrenador;
 
 public class EntrenadorActivity extends AppCompatActivity implements ListaEntrenadoresFragment.OnEntrenadorSeleccionadoListener{
@@ -42,8 +39,11 @@ public class EntrenadorActivity extends AppCompatActivity implements ListaEntren
 
     @Override
     public void onEntrenadorSeleccionado(int position) {
-        Intent intent = new Intent(this, DetalleEntrenadorActivity.class);
-        intent.putExtra("entrenador", entrenadores.get(position));
-        startActivity(intent);
+        boolean esFragmento = getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador) != null;
+        if (esFragmento) {
+            ((DetalleEntrenadorFragment)
+            intent.putExtra("per", entrenadores.get(position));
+            startActivity(intent);
+        }
     }
 }
