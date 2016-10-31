@@ -135,7 +135,7 @@ public class AgregarParticipanteFragment extends DialogFragment {
 
                 getDialog().dismiss();
 
-                Toast.makeText(getActivity(), "Participante: " + nombre + "agregado(a)", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Participante: " + nombre + " agregado(a)", Toast.LENGTH_LONG).show();
             }
         });
 

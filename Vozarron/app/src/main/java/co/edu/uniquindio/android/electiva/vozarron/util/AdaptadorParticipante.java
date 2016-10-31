@@ -28,7 +28,6 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         listener = (OnClickAdaptadorDeParticipante) listaParticipantesFragment;
     }
 
-
     @Override
     public ParticipanteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.resumen_participantes, parent, false);

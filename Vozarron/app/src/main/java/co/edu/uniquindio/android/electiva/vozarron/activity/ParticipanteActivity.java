@@ -70,7 +70,7 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
         } else {
             Intent intent = new Intent(this,
                     DetalleParticipanteActivity.class);
-            intent.putExtra("per", participantes.get(position));
+            intent.putExtra("participante", participantes.get(position));
             startActivity(intent);
         }
     }

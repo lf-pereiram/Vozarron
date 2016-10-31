@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -34,6 +33,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
     private View view;
     private FloatingActionButton btnVotar;
 
+
     public ListaParticipantesFragment() {
         // Required empty public constructor
     }
@@ -51,16 +51,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         adaptador = new AdaptadorParticipante(participantes, this);
-
-        View v =  inflater.inflate(R.layout.fragment_agregar_participante, null);
-
-        btnVotar = (FloatingActionButton) v.findViewById(R.id.btn_votar);
-        btnVotar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-            }
-        });
+        view = inflater.inflate(R.layout.fragment_lista_participantes, container, false);
         return view;
     }
 

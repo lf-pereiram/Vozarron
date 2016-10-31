@@ -46,7 +46,7 @@ public class EntrenadorActivity extends AppCompatActivity implements ListaEntren
         } else {
             Intent intent = new Intent(this,
                     DetalleEntrenadorActivity.class);
-            intent.putExtra("per", entrenadores.get(position));
+            intent.putExtra("entrenador", entrenadores.get(position));
             startActivity(intent);
         }
     }
