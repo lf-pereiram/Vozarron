@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo_nuevo_nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:text="Nombre: " />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:hint="Escriba su nombre completo"
+                android:ems="10"
+                android:id="@+id/nuevo_nombre" />
+
+            <TextView
+                android:id="@+id/titulo_nuevo_edad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:text="Edad: " />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Escriba su edad"
+                android:ems="10"
+                android:id="@+id/nuevo_edad" />
+
+            <TextView
+                android:id="@+id/titulo_nuevo_rol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:text="Tipo de Vinculación con la Uniquindio: " />
+
+            <Spinner
+                android:id="@+id/nuevo_rol"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"/>
+
+            <TextView
+                android:id="@+id/titulo_nuevo_entrenador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:text="Entrenador: " />
+
+            <Spinner
+                android:id="@+id/nuevo_entrenador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/titulo_nuevo_url"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:textColor="#ffffff"
+                android:text="URL a video en YouTube: " />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:hint="Escriba la url"
+                android:ems="10"
+                android:id="@+id/nuevo_url" />
+
+            <ImageView
+                android:id="@+id/nuevo_foto"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_person_add_white_24dp" />
+
+            <Button
+                android:id="@+id/btn_agregar"
+                android:layout_height="wrap_content"
+                android:text="Agregar"
+                android:layout_width="fill_parent"
+                android:background="#000000"
+                android:textColor="#ffffff">
+            </Button>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

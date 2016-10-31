@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_marginTop="22dp"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/alejandra"
+        android:id="@+id/imagen_detalle"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/titulo_de_detalle_participante"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edad_de_detalle_participante"
+        android:textColor="@android:color/background_light"
+        android:layout_above="@+id/titulo_vinculo"
+        android:layout_alignStart="@+id/btn_url" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rol_de_detalle_participante"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/titulo_vinculo"
+        android:layout_alignBottom="@+id/titulo_vinculo"
+        android:layout_alignStart="@+id/edad_de_detalle_participante" />
+
+    <TextView
+        android:text="Entrenador:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/titulo_entrenador"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/titulo_vinculo"
+        android:layout_alignStart="@+id/titulo_vinculo" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/entrenador_de_detalle_participante"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/titulo_entrenador"
+        android:layout_alignBottom="@+id/titulo_entrenador"
+        android:layout_alignStart="@+id/rol_de_detalle_participante" />
+
+    <TextView
+        android:text="Vinculación:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:id="@+id/titulo_vinculo"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/titulo_edad"
+        android:layout_alignStart="@+id/titulo_de_detalle_participante" />
+
+    <TextView
+        android:id="@+id/titulo_de_detalle_participante"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp" />
+
+    <TextView
+        android:text="Edad:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/titulo_edad"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        android:layout_below="@+id/imagen_detalle"
+        android:layout_alignStart="@+id/titulo_vinculo" />
+
+    <Button
+        android:id="@+id/btn_url"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:text="Video YouTube"
+        android:layout_marginLeft="125dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
