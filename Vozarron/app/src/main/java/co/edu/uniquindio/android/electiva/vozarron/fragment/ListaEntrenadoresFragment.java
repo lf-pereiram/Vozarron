@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -62,6 +63,36 @@ public class ListaEntrenadoresFragment extends Fragment implements AdaptadorEntr
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
+        entrenadores = cargarEntrenadores();
+        setEntrenadores(entrenadores);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        Activity activity;
+
+        if (context instanceof Activity){
+            activity = (Activity) context;
+            try {
+                listener = (OnEntrenadorSeleccionadoListener) activity;
+            } catch (ClassCastException e) {
+                throw new ClassCastException(activity.toString() + " debe implementar la interfaz OnEntrenadorSeleccionadoListener");
+            }
+        }
+    }
+
+    @Override
+    public void onClickPosition(int pos) {
+        listener.onEntrenadorSeleccionado(pos);
+    }
+
+    public interface OnEntrenadorSeleccionadoListener {
+        void onEntrenadorSeleccionado(int position);
+    }
+
+    public ArrayList<Entrenador> cargarEntrenadores() {
         entrenadores = new ArrayList<>();
 
         entrenadores.add(new Entrenador(0,"Adele", "Pop", R.drawable.adele2, "Adele was born in North London, England, on May 5, 1988, " +
@@ -92,31 +123,6 @@ public class ListaEntrenadoresFragment extends Fragment implements AdaptadorEntr
                 " Referred to as the \"Queen of Pop\", Madonna is often cited as an influence by " +
                 "other artists."));
 
-        setEntrenadores(entrenadores);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        Activity activity;
-
-        if (context instanceof Activity){
-            activity = (Activity) context;
-            try {
-                listener = (OnEntrenadorSeleccionadoListener) activity;
-            } catch (ClassCastException e) {
-                throw new ClassCastException(activity.toString() + " debe implementar la interfaz OnEntrenadorSeleccionadoListener");
-            }
-        }
-    }
-
-    @Override
-    public void onClickPosition(int pos) {
-        listener.onEntrenadorSeleccionado(pos);
-    }
-
-    public interface OnEntrenadorSeleccionadoListener {
-        void onEntrenadorSeleccionado(int position);
+        return entrenadores;
     }
 }

@@ -82,7 +82,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:onClick="realizarVoto"
-            card_view:srcCompat="@drawable/ic_plus_one_white_36dp" />
+            card_view:srcCompat="@drawable/ic_thumb_up_white_24dp" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

@@ -96,7 +96,8 @@
                 android:inputType="textUri"
                 android:hint="Escriba la url"
                 android:ems="10"
-                android:id="@+id/nuevo_url" />
+                android:id="@+id/nuevo_url"
+                android:text="https://"/>
 
             <ImageView
                 android:id="@+id/nuevo_foto"

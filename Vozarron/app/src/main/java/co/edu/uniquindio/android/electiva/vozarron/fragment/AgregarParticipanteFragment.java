@@ -7,10 +7,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +24,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
-import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteActivity;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
 /**
@@ -57,23 +54,13 @@ public class AgregarParticipanteFragment extends DialogFragment {
 
         getDialog().setTitle("Nuevo Participante");//cargue el texto desde los recursos
 
-        View v =  inflater.inflate(R.layout.fragment_agregar_participante, container, false);
+        View v =  inflater.inflate(R.layout.fragment_agregar_participante, null);
 
         campoNombre = (EditText) v.findViewById(R.id.nuevo_nombre);
-        nombre = campoNombre.getText().toString();
-
         campoEdad = (EditText) v.findViewById(R.id.nuevo_edad);
-        edad = campoEdad.getText().toString();
-
         campoRol = (Spinner) v.findViewById(R.id.nuevo_rol);
-        rol = campoRol.getSelectedItemPosition();
-
         campoEntrenador = (Spinner) v.findViewById(R.id.nuevo_entrenador);
-        entrenador = campoEntrenador.getSelectedItemPosition();
-
         campoUrl = (EditText) v.findViewById(R.id.nuevo_url);
-        url = campoUrl.getText().toString();
-
 
         // ------------------ Spinner para la seleccion del rol
         Spinner nuevoRol = (Spinner) v.findViewById(R.id.nuevo_rol);
@@ -91,7 +78,6 @@ public class AgregarParticipanteFragment extends DialogFragment {
         nuevoRol.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, android.view.View v, int position, long id) {
                 ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
-                Toast.makeText(getActivity(), " " + parent.getItemAtPosition(position), Toast.LENGTH_LONG).show();
             }
 
             //Si se selecciona un elemento vacio se muestra el mensaje
@@ -133,15 +119,23 @@ public class AgregarParticipanteFragment extends DialogFragment {
                 participantes = ListaParticipantesFragment.participantes;
                 Participante nuevo;
 
+                nombre = campoNombre.getText().toString();
+                edad = campoEdad.getText().toString();
+                rol = campoRol.getSelectedItemPosition();
+                entrenador = campoEntrenador.getSelectedItemPosition();
+                url = campoUrl.getText().toString();
+
                 if(participantes != null){
-                    nuevo = new Participante(participantes.size()+1, nombre, R.drawable.adele2, 28, 1, 1, 0, url, true);
+                    nuevo = new Participante(participantes.size()+1, nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
                 }else {
-                    nuevo = new Participante(0, nombre, R.drawable.adele2, 24, 1, 2, 0, url, true);
+                    nuevo = new Participante(0, nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
                 }
                 ListaParticipantesFragment.participantes.add(nuevo);
                 ListaParticipantesFragment.adaptador.notifyDataSetChanged();
 
                 getDialog().dismiss();
+
+                Toast.makeText(getActivity(), "Participante: " + nombre + "agregado(a)", Toast.LENGTH_LONG).show();
             }
         });
 

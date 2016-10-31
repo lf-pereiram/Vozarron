@@ -5,12 +5,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
     private OnParticipanteSeleccionadoListener listener;
     private ImageButton btnNuevo;
     private View view;
+    private FloatingActionButton btnVotar;
 
     public ListaParticipantesFragment() {
         // Required empty public constructor
@@ -48,7 +51,16 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         adaptador = new AdaptadorParticipante(participantes, this);
-        view = inflater.inflate(R.layout.fragment_lista_participantes, container, false);
+
+        View v =  inflater.inflate(R.layout.fragment_agregar_participante, null);
+
+        btnVotar = (FloatingActionButton) v.findViewById(R.id.btn_votar);
+        btnVotar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
         return view;
     }
 
