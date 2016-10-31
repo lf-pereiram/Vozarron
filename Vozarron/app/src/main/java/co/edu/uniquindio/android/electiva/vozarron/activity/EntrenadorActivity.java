@@ -42,6 +42,10 @@ public class EntrenadorActivity extends AppCompatActivity implements ListaEntren
         boolean esFragmento = getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador) != null;
         if (esFragmento) {
             ((DetalleEntrenadorFragment)
+                    getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_entrenador)).mostrarEntrenador(entrenadores.get(position));
+        } else {
+            Intent intent = new Intent(this,
+                    DetalleEntrenadorActivity.class);
             intent.putExtra("per", entrenadores.get(position));
             startActivity(intent);
         }

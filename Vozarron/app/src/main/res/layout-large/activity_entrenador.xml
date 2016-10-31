@@ -10,9 +10,11 @@
         class="co.edu.uniquindio.android.electiva.vozarron.fragment.ListaEntrenadoresFragment"
         android:layout_height="match_parent"
         android:layout_weight="60"
+        android:layout_width="wrap_content" />
     <fragment
         android:id="@+id/fragmento_detalle_entrenador"
         class="co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleEntrenadorFragment"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="40"
         android:layout_margin="5dp"/>
