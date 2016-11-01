@@ -17,11 +17,11 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/tamaño_width_imagen"
+        android:layout_height="@dimen/tamaño_height_imagen"
         app:srcCompat="@drawable/alejandra"
         android:id="@+id/imagen_detalle"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:layout_below="@+id/titulo_de_detalle_participante"
         android:layout_centerHorizontal="true" />
 
@@ -32,7 +32,8 @@
         android:id="@+id/edad_de_detalle_participante"
         android:textColor="@android:color/background_light"
         android:layout_above="@+id/titulo_vinculo"
-        android:layout_alignStart="@+id/btn_url" />
+        android:layout_alignStart="@+id/btn_url"
+        android:textSize="@dimen/edad_de_detalle_participante"/>
 
     <TextView
         android:text="TextView"
@@ -42,7 +43,8 @@
         android:textColor="@android:color/background_light"
         android:layout_alignBaseline="@+id/titulo_vinculo"
         android:layout_alignBottom="@+id/titulo_vinculo"
-        android:layout_alignStart="@+id/edad_de_detalle_participante" />
+        android:layout_alignStart="@+id/edad_de_detalle_participante"
+        android:textSize="@dimen/rol_de_detalle_participante"/>
 
     <TextView
         android:text="Entrenador:"
@@ -52,7 +54,8 @@
         android:id="@+id/titulo_entrenador"
         android:textColor="@android:color/background_light"
         android:layout_below="@+id/titulo_vinculo"
-        android:layout_alignStart="@+id/titulo_vinculo" />
+        android:layout_alignStart="@+id/titulo_vinculo"
+        android:textSize="@dimen/titulo_entrenador"/>
 
     <TextView
         android:text="TextView"
@@ -62,7 +65,8 @@
         android:textColor="@android:color/background_light"
         android:layout_alignBaseline="@+id/titulo_entrenador"
         android:layout_alignBottom="@+id/titulo_entrenador"
-        android:layout_alignStart="@+id/rol_de_detalle_participante" />
+        android:layout_alignStart="@+id/rol_de_detalle_participante"
+        android:textSize="@dimen/titulo_entrenador"/>
 
     <TextView
         android:text="Vinculación:"
@@ -72,7 +76,8 @@
         android:id="@+id/titulo_vinculo"
         android:textColor="@android:color/background_light"
         android:layout_below="@+id/titulo_edad"
-        android:layout_alignStart="@+id/titulo_de_detalle_participante" />
+        android:layout_alignStart="@+id/titulo_de_detalle_participante"
+        android:textSize="@dimen/titulo_vinculo"/>
 
     <TextView
         android:id="@+id/titulo_de_detalle_participante"
@@ -86,7 +91,8 @@
         android:layout_marginTop="22dp"
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp" />
+        android:layout_marginStart="20dp"
+        android:textSize="@dimen/titulo_de_detalle_participante"/>
 
     <TextView
         android:text="Edad:"
@@ -95,9 +101,9 @@
         android:layout_marginTop="17dp"
         android:id="@+id/titulo_edad"
         android:textColor="@android:color/background_light"
-        android:textSize="14sp"
         android:layout_below="@+id/imagen_detalle"
-        android:layout_alignStart="@+id/titulo_vinculo" />
+        android:layout_alignStart="@+id/titulo_vinculo"
+        android:textSize="@dimen/edad_de_detalle_participante"/>
 
     <Button
         android:id="@+id/btn_url"
@@ -109,5 +115,6 @@
         android:textColor="#ffffff"
         android:layout_marginBottom="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/btn_ir_video"/>
 </RelativeLayout>
