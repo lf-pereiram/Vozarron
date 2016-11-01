@@ -17,7 +17,7 @@
         android:layout_marginTop="34dp" />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="Participantes"
         android:id="@+id/btnCompetidores"
@@ -26,8 +26,9 @@
         android:layout_alignBaseline="@+id/btnEntrenadores"
         android:layout_alignBottom="@+id/btnEntrenadores"
         android:layout_alignEnd="@+id/imagen"
-        android:layout_marginEnd="22dp"
-        android:onClick="verParticipantes"/>
+        android:layout_marginEnd="-54dp"
+        android:onClick="verParticipantes"
+        android:textSize="20dp"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/btn_votar"
@@ -36,11 +37,12 @@
         android:src="@drawable/ic_translate_white_24dp"
         app:fabSize="normal"
         android:layout_alignParentBottom="true"
-        android:layout_alignEnd="@+id/imagen"
+        android:layout_alignEnd="@+id/btn_participantes"
+        android:layout_marginStart="365dp"
         app:backgroundTint="?android:attr/colorForeground" />
 
     <Button
-        android:layout_width="150dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:text="Entrenadores"
         android:id="@+id/btnEntrenadores"
@@ -49,12 +51,14 @@
         android:layout_marginBottom="18dp"
         android:layout_above="@+id/btn_votar"
         android:layout_alignStart="@+id/imagen"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="-54dp"
+        android:textSize="20dp"
+
         android:onClick="verEntrenadores"/>
 
     <ImageView
         android:id="@+id/imagen"
-        android:src="@drawable/collage"
+        android:src="@drawable/collagelarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxHeight="10dp"
