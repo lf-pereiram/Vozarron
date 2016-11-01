@@ -54,7 +54,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             card_view:srcCompat="@drawable/ic_thumb_up_white_24dp"
-            android:onClick="realizarVoto"
             />
 
     </RelativeLayout>
