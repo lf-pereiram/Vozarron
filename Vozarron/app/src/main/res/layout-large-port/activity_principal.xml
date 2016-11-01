@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Participantes"
+        android:id="@+id/btnCompetidores"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_alignBaseline="@+id/btnEntrenadores"
+        android:layout_alignBottom="@+id/btnEntrenadores"
+        android:layout_alignEnd="@+id/imagen"
+        android:layout_marginEnd="22dp"
+        android:onClick="verParticipantes"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btn_votar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_translate_white_24dp"
+        app:fabSize="normal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/imagen"
+        app:backgroundTint="?android:attr/colorForeground" />
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Entrenadores"
+        android:id="@+id/btnEntrenadores"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="18dp"
+        android:layout_above="@+id/btn_votar"
+        android:layout_alignStart="@+id/imagen"
+        android:layout_marginStart="14dp"
+        android:onClick="verEntrenadores"/>
+
+    <ImageView
+        android:id="@+id/imagen"
+        android:src="@drawable/collage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="10dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

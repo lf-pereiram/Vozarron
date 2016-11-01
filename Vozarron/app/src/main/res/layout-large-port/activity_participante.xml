@@ -3,7 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
 
     <fragment
         android:id="@+id/fragmento_lista_participantes"
@@ -16,6 +17,6 @@
         class="co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleParticipanteFragment"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="1"
+        android:layout_weight="1.21"
         android:layout_margin="5dp"/>
 </LinearLayout>

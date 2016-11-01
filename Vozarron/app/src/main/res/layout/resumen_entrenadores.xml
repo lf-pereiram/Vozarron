@@ -32,7 +32,8 @@
             android:text="Generp"
             android:layout_below="@+id/nombreEntrenador"
             android:layout_alignParentStart="true"
-            android:textColor="@color/abc_primary_text_disable_only_material_dark" />
+            android:textColor="@color/abc_primary_text_disable_only_material_dark"
+            android:textSize="@dimen/genero"/>
 
         <ImageView
             android:id="@+id/fotoEntrenador"
@@ -42,7 +43,8 @@
             android:maxHeight="10dp"
             android:layout_marginRight="16dp"
             android:layout_below="@+id/genero"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            />
 
 
     </RelativeLayout>

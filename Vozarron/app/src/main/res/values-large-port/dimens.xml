@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    //participante
+
+    <dimen name="edad_de_detalle_participante">25dp</dimen>
+    <dimen name="rol_de_detalle_participante">25dp</dimen>
+    <dimen name="titulo_de_detalle_participante">25dp</dimen>
+    <dimen name="titulo_vinculo">25dp</dimen>
+    <dimen name="titulo_entrenador">25dp</dimen>
+    <dimen name="tamaño_width_imagen">200dp</dimen>
+    <dimen name="tamaño_height_imagen">200dp</dimen>
+    <dimen name="rol_resumen">15dp</dimen>
+    <dimen name="btn_ir_video">15dp</dimen>
+
+    //entrenador
+
+    <dimen name="genero">20dp</dimen>
+    <dimen name="titulo_de_detalle_entrenador">30dp</dimen>
+    <dimen name="descripcion_detalle_entrenador">23dp</dimen>
+    <dimen name="btn_participantes">20dp</dimen>
+    <dimen name="btn_participantes_margin">250dp</dimen>
+</resources>

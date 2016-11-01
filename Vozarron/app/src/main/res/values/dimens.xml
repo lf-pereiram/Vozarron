@@ -3,6 +3,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    //participante
     <dimen name="edad_de_detalle_participante">15dp</dimen>
     <dimen name="rol_de_detalle_participante">15dp</dimen>
     <dimen name="titulo_de_detalle_participante">15dp</dimen>
@@ -12,4 +13,12 @@
     <dimen name="tamaño_height_imagen">125dp</dimen>
     <dimen name="rol_resumen">13dp</dimen>
     <dimen name="btn_ir_video">13dp</dimen>
+
+    //entrenador
+
+    <dimen name="genero">15dp</dimen>
+    <dimen name="titulo_de_detalle_entrenador">15dp</dimen>
+    <dimen name="descripcion_detalle_entrenador">16dp</dimen>
+    <dimen name="btn_participantes">13dp</dimen>
+    <dimen name="btn_participantes_margin">125dp</dimen>
 </resources>
