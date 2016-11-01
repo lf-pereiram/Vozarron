@@ -27,15 +27,12 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
     private ArrayList<Participante> participantes;
     private static OnClickAdaptadorDeParticipante listener;
+    private static Participante participante;
 
     public AdaptadorParticipante(ArrayList<Participante> participantes, ListaParticipantesFragment listaParticipantesFragment) {
         this.participantes = participantes;
         listener = (OnClickAdaptadorDeParticipante) listaParticipantesFragment;
     }
-
-    //public void cargarParticipantes(){
-      //  View v =
-    //}
 
     @Override
     public ParticipanteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -47,7 +44,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
     @Override
     public void onBindViewHolder(ParticipanteViewHolder holder, int position) {
-        Participante participante = participantes.get(position);
+        participante = participantes.get(position);
         holder.bindParticipante(participante);
     }
 
@@ -68,7 +65,6 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         private TextView txtNumeroVotos;
         private FloatingActionButton btnVotar;
         private FloatingActionButton btnVer;
-        private Participante p;
 
         public ParticipanteViewHolder(View itemView) {
             super(itemView);
@@ -82,11 +78,16 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
             btnVotar.setOnClickListener(this);
 
             btnVer = (FloatingActionButton) itemView.findViewById(R.id.btn_ver);
-            btnVer.setOnClickListener(this);
+            btnVer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.v("visualizar", "presioné ----------------"+txtNombreParticipante.getText().toString());
+                    listener.onClickPosition(getAdapterPosition());
+                }
+            });
         }
 
         public void bindParticipante(Participante participante) {
-            p = participante;
 
             txtNombreParticipante.setText(participante.getNombre());
             txtRol.setText(participante.rolToString(participante.getRol()));
@@ -96,18 +97,12 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
         @Override
         public void onClick(View v) {
-            //listener.onClickPosition(getAdapterPosition());
 
-            if(v.getId() == btnVer.getId()){
-
-            }
-
-            if(v.getId() == btnVotar.getId()){
                 Log.v("prueba", "presioné ----------------"+txtNombreParticipante.getText().toString());
-                int votos = p.getNumVotos()+1;
-                p.setNumVotos(votos);
+                int votos = participante.getNumVotos()+1;
+                participante.setNumVotos(votos);
                 txtNumeroVotos.setText(Integer.toString(votos));
-            }
+
 
         }
     }
