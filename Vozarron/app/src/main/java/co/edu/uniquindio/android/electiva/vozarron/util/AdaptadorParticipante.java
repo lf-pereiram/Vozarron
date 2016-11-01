@@ -68,6 +68,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         private TextView txtNumeroVotos;
         private FloatingActionButton btnVotar;
         private FloatingActionButton btnVer;
+        private Participante p;
 
         public ParticipanteViewHolder(View itemView) {
             super(itemView);
@@ -85,6 +86,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         }
 
         public void bindParticipante(Participante participante) {
+            p = participante;
 
             txtNombreParticipante.setText(participante.getNombre());
             txtRol.setText(participante.rolToString(participante.getRol()));
@@ -102,7 +104,9 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
             if(v.getId() == btnVotar.getId()){
                 Log.v("prueba", "presioné ----------------"+txtNombreParticipante.getText().toString());
-
+                int votos = p.getNumVotos()+1;
+                p.setNumVotos(votos);
+                txtNumeroVotos.setText(Integer.toString(votos));
             }
 
         }
