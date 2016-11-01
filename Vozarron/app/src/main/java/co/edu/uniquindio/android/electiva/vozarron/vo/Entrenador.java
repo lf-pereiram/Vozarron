@@ -1,9 +1,7 @@
 package co.edu.uniquindio.android.electiva.vozarron.vo;
 
-import android.media.Image;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 

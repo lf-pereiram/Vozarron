@@ -61,6 +61,7 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
 
     @Override
     public void onParticipanteSeleccionado(int position) {
+
         boolean esFragmento =
                 getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_participante) != null;
         if (esFragmento) {
@@ -81,12 +82,6 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
      */
     public static void mostrarMensaje(Context context, String mensaje) {
         Toast.makeText(context, mensaje, Toast.LENGTH_SHORT).show();
-    }
-
-    public void realizarVoto (View v) {
-        TextView nombre = (TextView) findViewById(R.id.nombreParticipante);
-        mostrarMensaje(ParticipanteActivity.this,"Se dio clic para votar por: " + nombre.getText());
-        FloatingActionButton btnVotar = (FloatingActionButton) findViewById(R.id.btn_votar);
     }
 
     public void mostrarDialogoAgregarParticipante(String nombreClase) {

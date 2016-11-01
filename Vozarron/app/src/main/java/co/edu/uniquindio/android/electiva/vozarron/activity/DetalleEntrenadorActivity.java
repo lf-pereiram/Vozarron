@@ -1,7 +1,7 @@
 package co.edu.uniquindio.android.electiva.vozarron.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleEntrenadorFragment;

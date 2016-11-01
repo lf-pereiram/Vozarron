@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient">
+
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/entrenador_de_detalle_participante2"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/titulo_entrenador2"
+        android:layout_alignBottom="@+id/titulo_entrenador2"
+        android:layout_alignStart="@+id/rol_de_detalle_participante2" />
+
+    <Button
+        android:id="@+id/btn_url2"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:text="Video YouTube"
+        android:layout_marginLeft="125dp"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="9dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/titulo_de_detalle_participante2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:layout_marginTop="207dp"
+        android:layout_marginStart="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/adele2"
+        android:id="@+id/detalle_imagen_entrenador"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/titulo_de_detalle_participante2"
+        android:layout_marginTop="29dp" />
+
+    <TextView
+        android:text="Edad:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titulo_edad2"
+        android:textColor="@android:color/background_light"
+        android:textSize="14sp"
+        android:layout_alignBaseline="@+id/edad_de_detalle_participante2"
+        android:layout_alignBottom="@+id/edad_de_detalle_participante2"
+        android:layout_toEndOf="@+id/titulo_de_detalle_participante2"
+        android:layout_marginStart="23dp" />
+
+    <TextView
+        android:text="Vinculación:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/titulo_vinculo2"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/titulo_edad2"
+        android:layout_alignStart="@+id/titulo_edad2"
+        android:layout_marginTop="9dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/edad_de_detalle_participante2"
+        android:textColor="@android:color/background_light"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/btn_url2"
+        android:layout_marginStart="15dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rol_de_detalle_participante2"
+        android:textColor="@android:color/background_light"
+        android:layout_alignBaseline="@+id/titulo_vinculo2"
+        android:layout_alignBottom="@+id/titulo_vinculo2"
+        android:layout_alignStart="@+id/edad_de_detalle_participante2" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/alejandra"
+        android:id="@+id/imagen_detalle2"
+        android:layout_below="@+id/titulo_de_detalle_participante2"
+        android:layout_alignStart="@+id/titulo_de_detalle_participante2"
+        android:layout_marginTop="21dp" />
+
+    <TextView
+        android:text="Entrenador:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:id="@+id/titulo_entrenador2"
+        android:textColor="@android:color/background_light"
+        android:layout_below="@+id/titulo_vinculo2"
+        android:layout_alignStart="@+id/titulo_vinculo2" />
+
+</RelativeLayout>

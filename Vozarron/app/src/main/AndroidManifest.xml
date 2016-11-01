@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.uniquindio.android.electiva.vozarron">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.EntrenadorActivity" />
-        <activity android:name=".activity.ParticipanteActivity"/>
+        <activity android:name=".activity.ParticipanteActivity" />
         <activity
             android:name=".activity.DetalleEntrenadorActivity"
             android:label="@string/title_activity_detalle_entrenador"
@@ -24,9 +28,8 @@
         <activity
             android:name=".activity.DetalleParticipanteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activity.ParticipanteEntrenadorActivity" />
+        <activity android:name=".activity.DetalleParticipanteEntrenadorActivity"></activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 </manifest>

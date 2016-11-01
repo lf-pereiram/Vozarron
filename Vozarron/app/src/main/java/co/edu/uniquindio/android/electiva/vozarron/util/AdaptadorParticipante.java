@@ -1,10 +1,12 @@
 package co.edu.uniquindio.android.electiva.vozarron.util;
 
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -52,18 +54,20 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
     }
 
     public static class ParticipanteViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
         private TextView txtNombreParticipante;
         private TextView txtRol;
         private ImageView fotoParticipante;
+        private FloatingActionButton btnVotar;
 
         public ParticipanteViewHolder(View itemView) {
             super(itemView);
 
-            itemView.setOnClickListener(this);
-
             txtNombreParticipante = (TextView) itemView.findViewById(R.id.nombreParticipante);
             txtRol = (TextView) itemView.findViewById(R.id.rol);
             fotoParticipante = (ImageView) itemView.findViewById(R.id.fotoParticipante);
+            btnVotar= (FloatingActionButton) itemView.findViewById(R.id.btn_votar);
+            btnVotar.setOnClickListener(this);
         }
 
         public void bindParticipante(Participante participante) {
@@ -74,8 +78,10 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
         @Override
         public void onClick(View v) {
-            Log.d("TAG", "Element " + getAdapterPosition() + " clicked. "+ txtNombreParticipante.getText());
-            listener.onClickPosition(getAdapterPosition());
+            //listener.onClickPosition(getAdapterPosition());
+
+            Log.v("prueba", "presioné ----------------"+txtNombreParticipante.getText().toString());
+
         }
     }
 }

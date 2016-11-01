@@ -1,16 +1,22 @@
 package co.edu.uniquindio.android.electiva.vozarron.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
+import co.edu.uniquindio.android.electiva.vozarron.activity.EntrenadorActivity;
+import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteActivity;
+import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteEntrenadorActivity;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Entrenador;
+import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,6 +27,8 @@ public class DetalleEntrenadorFragment extends Fragment implements View.OnClickL
     private TextView txtHistorial;
     private ImageView foto;
     private Entrenador entrenador;
+    private Button btnLista;
+    private int id;
 
 
     public DetalleEntrenadorFragment() {
@@ -38,6 +46,11 @@ public class DetalleEntrenadorFragment extends Fragment implements View.OnClickL
         foto = (ImageView) getView().findViewById(R.id.imagen_detalle);
         foto.setImageResource(entrenador.getFoto());
 
+        id = entrenador.getId();
+
+        btnLista = (Button) getView().findViewById(R.id.btn_participantes);
+        btnLista.setOnClickListener(this);
+
     }
 
 
@@ -50,5 +63,9 @@ public class DetalleEntrenadorFragment extends Fragment implements View.OnClickL
     @Override
     public void onClick(View v) {
 
+        if(v.getId() == btnLista.getId()) {
+            Intent intent = new Intent(getActivity(), ParticipanteEntrenadorActivity.class);
+            startActivity(intent);
+        }
     }
 }
