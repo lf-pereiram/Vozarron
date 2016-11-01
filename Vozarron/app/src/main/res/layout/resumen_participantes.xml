@@ -52,7 +52,6 @@
             card_view:fabSize="normal"
             card_view:backgroundTint="#2d2c2c"
             card_view:srcCompat="@drawable/ic_thumb_up_white_24dp"
-<<<<<<< HEAD
             android:layout_alignBottom="@+id/fotoParticipante"
             android:layout_alignParentEnd="true" />
 
@@ -65,10 +64,6 @@
             card_view:srcCompat="@drawable/ic_visibility_white_24dp"
             android:layout_below="@+id/nombreParticipante"
             android:layout_alignParentEnd="true" />
-=======
-            android:onClick="realizarVoto"
-            />
->>>>>>> origin/master
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>
