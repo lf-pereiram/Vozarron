@@ -85,10 +85,11 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         }
 
         public void bindParticipante(Participante participante) {
+
             txtNombreParticipante.setText(participante.getNombre());
             txtRol.setText(participante.rolToString(participante.getRol()));
             fotoParticipante.setImageResource(participante.getFoto());
-            txtNumeroVotos.setText(participante.getNumVotos());
+            txtNumeroVotos.setText(Integer.toString(participante.getNumVotos()));
         }
 
         @Override
