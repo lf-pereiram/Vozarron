@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="edad_de_detalle_participante">30dp</dimen>
+    <dimen name="rol_de_detalle_participante">30dp</dimen>
+    <dimen name="titulo_de_detalle_participante">30dp</dimen>
+    <dimen name="titulo_vinculo">30dp</dimen>
+    <dimen name="titulo_entrenador">30dp</dimen>
+    <dimen name="tamaño_width_imagen">250dp</dimen>
+    <dimen name="tamaño_height_imagen">250dp</dimen>
+    <dimen name="rol_resumen">20dp</dimen>
+    <dimen name="btn_ir_video">20dp</dimen>
+</resources>
