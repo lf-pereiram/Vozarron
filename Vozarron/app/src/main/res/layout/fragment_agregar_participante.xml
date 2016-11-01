@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/gradient">
+    android:background="@color/colorAccent">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -22,7 +22,7 @@
                 android:id="@+id/titulo_nuevo_nombre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:text="Nombre: " />
 
@@ -32,13 +32,14 @@
                 android:inputType="textPersonName"
                 android:hint="Escriba su nombre completo"
                 android:ems="10"
-                android:id="@+id/nuevo_nombre" />
+                android:id="@+id/nuevo_nombre"
+                />
 
             <TextView
                 android:id="@+id/titulo_nuevo_edad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:text="Edad: " />
 
@@ -54,7 +55,7 @@
                 android:id="@+id/titulo_nuevo_rol"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:text="Tipo de Vinculación con la Uniquindio: " />
 
@@ -70,7 +71,7 @@
                 android:id="@+id/titulo_nuevo_entrenador"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:text="Entrenador: " />
 
@@ -86,7 +87,7 @@
                 android:id="@+id/titulo_nuevo_url"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:textColor="#ffffff"
                 android:text="URL a video en YouTube: " />
 
