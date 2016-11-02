@@ -28,7 +28,8 @@
         <activity
             android:name=".activity.DetalleParticipanteActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.ParticipanteEntrenadorActivity" />
+        <activity android:name=".activity.ParticipanteEntrenadorActivity"/>
+        <activity android:name=".activity.ParticipantesEntrenadorActivity" />
         <activity android:name=".activity.DetalleParticipanteEntrenadorActivity"></activity>
     </application>
 

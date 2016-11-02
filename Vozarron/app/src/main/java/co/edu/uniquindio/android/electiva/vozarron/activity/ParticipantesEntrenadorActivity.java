@@ -3,49 +3,42 @@ package co.edu.uniquindio.android.electiva.vozarron.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.AgregarParticipanteFragment;
+import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleEntrenadorFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleParticipanteFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesFragment;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
-public class ParticipanteActivity extends AppCompatActivity implements ListaParticipantesFragment.OnParticipanteSeleccionadoListener {
+/**
+ * Created by luisa on 1/11/2016.
+ */
 
+public class ParticipantesEntrenadorActivity extends AppCompatActivity implements ListaParticipantesFragment.OnParticipanteSeleccionadoListener{
     private ArrayList<Participante> participantes;
     ListaParticipantesFragment listaParticipantesFragment;
-
-    public ParticipanteActivity(ArrayList<Participante> participantes) {
-        this.participantes = participantes;
-    }
-
-    public ParticipanteActivity() {
-    }
-
-    public ArrayList<Participante> getParticipantes() {
-        return participantes;
-    }
-
-    public void setParticipantes(ArrayList<Participante> participantes) {
-        this.participantes = participantes;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_participante);
+
+        int id = (int) getIntent().getExtras().get("id_entrenador");
+
         listaParticipantesFragment = (ListaParticipantesFragment) getSupportFragmentManager().findFragmentById(R.id.fragmento_lista_participantes);
 
-        participantes = listaParticipantesFragment.getParticipantes();
+        participantes = listaParticipantesFragment.listarParticipantesPorEntrenador(id);
+        Log.v("Lista", ""+participantes.size());
     }
 
     @Override
@@ -81,7 +74,5 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
 
     public void agregarNuevoParticipante(View v){
         mostrarDialogoAgregarParticipante(ListaParticipantesFragment.class.getName());
-        Toast.makeText(ParticipanteActivity.this, " Se hizo clic en boton agregar", Toast.LENGTH_LONG).show();
     }
-
 }

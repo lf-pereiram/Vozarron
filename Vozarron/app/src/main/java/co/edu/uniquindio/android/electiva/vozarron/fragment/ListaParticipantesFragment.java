@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
@@ -54,6 +55,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         adaptador = new AdaptadorParticipante(participantes, this);
+
         view = inflater.inflate(R.layout.fragment_lista_participantes, container, false);
         return view;
     }
@@ -123,14 +125,14 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
         participantes = new ArrayList<>();
 
-        participantes.add(new Participante(0, nombres[0], fotos[0], edad[0], 2, 2, votos[0], url, true));
+        participantes.add(new Participante(0, nombres[0], fotos[0], edad[0], 0, 2, votos[0], url, true));
         participantes.add(new Participante(1, nombres[1], fotos[1], edad[1], 1, 3, votos[1], url, true));
         participantes.add(new Participante(2, nombres[2], fotos[2], edad[2], 1, 1, votos[2], url, true));
         participantes.add(new Participante(3, nombres[3], fotos[3], edad[3], 0, 0, votos[3], url, true));
         participantes.add(new Participante(4, nombres[4], fotos[4], edad[4], 0, 2, votos[4], url, true));
         participantes.add(new Participante(5, nombres[5], fotos[5], edad[5], 2, 3, votos[5], url, true));
         participantes.add(new Participante(6, nombres[6], fotos[6], edad[6], 1, 0, votos[6], url, true));
-        participantes.add(new Participante(7, nombres[7], fotos[7], edad[7], 1, 1, votos[7], url, true));
+        participantes.add(new Participante(7, nombres[7], fotos[7], edad[7], 0, 1, votos[7], url, true));
         participantes.add(new Participante(8, nombres[8], fotos[8], edad[8], 2, 2, votos[8], url, true));
         participantes.add(new Participante(9, nombres[9], fotos[9], edad[9], 0, 2, votos[9], url, true));
         participantes.add(new Participante(10, nombres[10], fotos[10], edad[10], 2, 0, votos[10], url, true));
@@ -140,5 +142,17 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         participantes.add(new Participante(14, nombres[14], fotos[14], edad[14], 2, 3, votos[14], url, true));
 
         return participantes;
+    }
+
+    public ArrayList<Participante> listarParticipantesPorEntrenador (int idEntrenador){
+        ArrayList<Participante> nuevo = new ArrayList<>();
+
+        for (int i=0; i<participantes.size(); i++){
+            if(participantes.get(i).getEntrenador() == idEntrenador){
+                nuevo.add(participantes.get(i));
+            }
+        }
+
+        return nuevo;
     }
 }
