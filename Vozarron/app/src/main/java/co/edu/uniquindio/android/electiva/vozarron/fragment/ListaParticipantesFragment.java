@@ -35,6 +35,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
     private ImageButton btnNuevo;
     private View view;
     private FloatingActionButton btnVotar;
+    private ArrayList<Participante> participanteAdaptador;
 
 
     public ListaParticipantesFragment() {
@@ -65,7 +66,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         super.onActivityCreated(savedInstanceState);
         listaParticipantes = (RecyclerView) getView().findViewById(R.id.listaParticipantes);
 
-        adaptador = new AdaptadorParticipante(participantes, this);
+        adaptador = new AdaptadorParticipante(participanteAdaptador, this);
         listaParticipantes.setAdapter(adaptador);
         listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
     }
@@ -141,6 +142,8 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         participantes.add(new Participante(13, nombres[13], fotos[13], edad[13], 1, 2, votos[13], url, true));
         participantes.add(new Participante(14, nombres[14], fotos[14], edad[14], 2, 3, votos[14], url, true));
 
+        participanteAdaptador = participantes;
+
         return participantes;
     }
 
@@ -152,7 +155,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
                 nuevo.add(participantes.get(i));
             }
         }
-
+        participanteAdaptador = nuevo;
         return nuevo;
     }
 }
