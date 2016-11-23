@@ -32,6 +32,14 @@ public class ListaParticipantesEntrenadorFragment extends Fragment implements Ad
         // Required empty public constructor
     }
 
+    public ArrayList<Participante> getParticipantes() {
+        return participantes;
+    }
+
+    public void setParticipantes(ArrayList<Participante> participantes) {
+        this.participantes = participantes;
+    }
+
     @Override
     public void onClickPosition(int pos) {
         listener.onParticipanteSeleccionado(pos);
@@ -51,12 +59,21 @@ public class ListaParticipantesEntrenadorFragment extends Fragment implements Ad
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        listadoParticipantesEntrenador = (RecyclerView)getView().findViewById(R.id.listaParticipantesEntrenador);
+        listadoParticipantesEntrenador = (RecyclerView)getView().findViewById(R.id.listaParticipantes);
 
         adaptador = new AdaptadorParticipanteEntrenador(participantes, this);
         listadoParticipantesEntrenador.setAdapter(adaptador);
 
         listadoParticipantesEntrenador.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+
+        participantes = cargarListaParticipantes();
+        setParticipantes(participantes);
     }
 
     @Override
@@ -71,5 +88,13 @@ public class ListaParticipantesEntrenadorFragment extends Fragment implements Ad
                 throw new ClassCastException(activity.toString() + " debe implementar la interfaz OnPersonajeSeleccionadoListener");
             }
         }
+    }
+
+    public ArrayList<Participante> cargarListaParticipantes() {
+        ArrayList<Participante> participantesAll = ListaParticipantesFragment.participantes;
+        //ArrayList<Participante> participantesAll = getFragmentManager().findFragmentById(R.id.fragmento_lista_participantes);
+
+
+        return ListaParticipantesFragment.participantes;
     }
 }

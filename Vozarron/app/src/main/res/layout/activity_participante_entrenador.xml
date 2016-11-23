@@ -12,8 +12,20 @@
     tools:context="co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteEntrenadorActivity"
     android:background="@drawable/gradient">
     <fragment
-        android:id="@+id/fragmento_lista_pesonajes_entrenador"
+        android:id="@+id/fragmento_lista_participante_entrenador"
         class="co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesEntrenadorFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/titulo_participantes_entrenador"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Participantes"
+        android:id="@+id/titulo_participantes_entrenador"
+        android:textColor="#ffffff"
+        android:textSize="30dp"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>

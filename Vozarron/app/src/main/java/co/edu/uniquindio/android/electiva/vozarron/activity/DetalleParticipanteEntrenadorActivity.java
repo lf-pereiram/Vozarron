@@ -13,6 +13,7 @@ public class DetalleParticipanteEntrenadorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_participante_entrenador);
+
         DetalleParticipanteEntrenadorFragment detalleParticipante = (DetalleParticipanteEntrenadorFragment) getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_participante_entrenador);
         Participante participante = (Participante) getIntent().getExtras().get("particapanteE");
         detalleParticipante.mostrarParticipante(participante);
