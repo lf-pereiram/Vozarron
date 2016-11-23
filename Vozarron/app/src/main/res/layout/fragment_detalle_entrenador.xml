@@ -60,7 +60,7 @@
                 android:id="@+id/btn_participantes"
                 android:layout_width="136dp"
                 android:layout_height="wrap_content"
-                android:text="Participantes"
+                android:text="@string/particpantes"
                 android:layout_marginLeft="@dimen/btn_participantes_margin"
                 android:background="#000000"
                 android:textColor="#ffffff"/>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vozarron</string>
     <string name="title_activity_principal">PrincipalActivity</string>
@@ -24,4 +25,5 @@
     <string name="escribaUrl">Escriba la url</string>
     <string name="entrenadores">Entrenadores</string>
 
+    <string name="lenguaje_app">Es</string>
 </resources>

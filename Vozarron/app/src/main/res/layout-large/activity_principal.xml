@@ -19,7 +19,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Participantes"
+        android:text="@string/particpantes"
         android:id="@+id/btnCompetidores"
         android:background="#000000"
         android:textColor="#ffffff"
@@ -55,7 +55,7 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Entrenadores"
+        android:text="@string/entrenadores"
         android:id="@+id/btnEntrenadores"
         android:background="#000000"
         android:textColor="#ffffff"

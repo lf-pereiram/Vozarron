@@ -23,19 +23,19 @@
             android:textSize="30sp"
             android:textColor="#ffffff"
             android:layout_alignParentTop="true"
-            android:text="Prueba" />
+            android:text="@string/prueba" />
         <TextView
             android:id="@+id/rol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rol Participante"
+            android:text="@string/rolParticipante"
             android:layout_alignStart="@+id/nombreParticipante"
             android:layout_below="@+id/nombreParticipante"
             android:textColor="#ffffff"
             android:textSize="@dimen/rol_resumen"/>
 
         <TextView
-            android:text="votos"
+            android:text="@string/votos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/numVotos"

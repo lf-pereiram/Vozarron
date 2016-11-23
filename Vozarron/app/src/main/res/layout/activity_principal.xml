@@ -19,7 +19,7 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Participantes"
+        android:text="@string/particpantes"
         android:id="@+id/btnCompetidores"
         android:background="#000000"
         android:textColor="#ffffff"
@@ -37,12 +37,13 @@
         app:fabSize="normal"
         android:layout_alignParentBottom="true"
         android:layout_alignEnd="@+id/imagen"
-        app:backgroundTint="?android:attr/colorForeground" />
+        app:backgroundTint="?android:attr/colorForeground"
+        android:onClick="cambiarIdioma"/>
 
     <Button
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Entrenadores"
+        android:text="@string/entrenadores"
         android:id="@+id/btnEntrenadores"
         android:background="#000000"
         android:textColor="#ffffff"

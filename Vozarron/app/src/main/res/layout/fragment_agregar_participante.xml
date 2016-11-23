@@ -24,13 +24,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:text="Nombre: " />
+                android:text="@string/nombre" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:hint="Escriba su nombre completo"
+                android:hint="@string/escribaNombre"
                 android:ems="10"
                 android:id="@+id/nuevo_nombre"
                 />
@@ -41,13 +41,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:text="Edad: " />
+                android:text="@string/edad" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
-                android:hint="Escriba su edad"
+                android:hint="@string/escribaEdad"
                 android:ems="10"
                 android:id="@+id/nuevo_edad" />
 
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:text="Tipo de Vinculación con la Uniquindio: " />
+                android:text="@string/tipoVinculacion" />
 
             <Spinner
                 android:id="@+id/nuevo_rol"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:text="Entrenador: " />
+                android:text="@string/entrenador" />
 
             <Spinner
                 android:id="@+id/nuevo_entrenador"
@@ -89,13 +89,13 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:textColor="#ffffff"
-                android:text="URL a video en YouTube: " />
+                android:text="@string/url" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textUri"
-                android:hint="Escriba la url"
+                android:hint="@string/escribaUrl"
                 android:ems="10"
                 android:id="@+id/nuevo_url"
                 android:text="https://"/>
@@ -110,7 +110,7 @@
             <Button
                 android:id="@+id/btn_agregar"
                 android:layout_height="wrap_content"
-                android:text="Agregar"
+                android:text="@string/agregar"
                 android:layout_width="fill_parent"
                 android:background="#000000"
                 android:textColor="#ffffff">

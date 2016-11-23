@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Participantes"
+        android:text="@string/particpantes"
         android:id="@+id/titulo_participantes"
         android:textColor="#424242"
         android:textSize="30dp"

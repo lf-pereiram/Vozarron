@@ -23,7 +23,7 @@
         android:id="@+id/btn_url2"
         android:layout_width="132dp"
         android:layout_height="wrap_content"
-        android:text="Video YouTube"
+        android:text="@string/video"
         android:layout_marginLeft="125dp"
         android:background="#000000"
         android:textColor="#ffffff"
@@ -55,7 +55,7 @@
         android:layout_marginTop="29dp" />
 
     <TextView
-        android:text="Edad:"
+        android:text="@string/edad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/titulo_edad2"
@@ -67,7 +67,7 @@
         android:layout_marginStart="23dp" />
 
     <TextView
-        android:text="Vinculación:"
+        android:text="@string/vinculacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/titulo_vinculo2"
@@ -106,7 +106,7 @@
         android:layout_marginTop="21dp" />
 
     <TextView
-        android:text="Entrenador:"
+        android:text="@string/entrenador"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"

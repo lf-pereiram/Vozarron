@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vozarron</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detalle_entrenador">DetalleEntrenadorActivity</string>
+    <string name="title_activity_participante_entrenador">ParticipanteEntrenadorActivity</string>
+    <string name="entrenador">Trainer: </string>
+    <string name="vinculacion">Entailment:</string>
+    <string name="edad">Age: </string>
+    <string name="video">YouTube video</string>
+    <string name="prueba">Test</string>
+    <string name="genero">Genre</string>
+    <string name="rolParticipante">Role participant</string>
+    <string name="votos">Votes</string>
+    <string name="particpantes">Participants</string>
+    <string name="agregar">Add</string>
+    <string name="nombre">Name:</string>
+    <string name="tipoVinculacion">Type of entailment with uniquindio: </string>
+    <string name="url">Youtube url: </string>
+    <string name="escribaNombre">Type your full name</string>
+    <string name="escribaEdad">Type your age</string>
+    <string name="escribaUrl">Escriba the url</string>
+    <string name="entrenadores">Trainers</string>
+
+    <string name="lenguaje_app">En</string>
+</resources>

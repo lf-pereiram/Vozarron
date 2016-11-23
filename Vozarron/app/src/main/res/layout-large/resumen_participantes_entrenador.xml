@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textColor="#ffffff"
-            android:text="Prueba" />
+            android:text="@string/prueba" />
         <TextView
             android:id="@+id/rolE"
             android:layout_width="wrap_content"

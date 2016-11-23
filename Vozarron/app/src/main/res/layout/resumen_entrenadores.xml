@@ -22,14 +22,14 @@
             android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textColor="@color/abc_primary_text_disable_only_material_dark"
-            android:text="Prueba"
+            android:text="@string/prueba"
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true" />
         <TextView
             android:id="@+id/genero"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Generp"
+            android:text="@string/genero"
             android:layout_below="@+id/nombreEntrenador"
             android:layout_alignParentStart="true"
             android:textColor="@color/abc_primary_text_disable_only_material_dark"
