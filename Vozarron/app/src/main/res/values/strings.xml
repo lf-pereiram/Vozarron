@@ -23,5 +23,9 @@
     <string name="escribaEdad">Escriba su edad</string>
     <string name="escribaUrl">Escriba la url</string>
     <string name="entrenadores">Entrenadores</string>
+    <string name="voto_exitoso">Voto Exitoso! Tu voto se ha registrado, sigue votando.</string>
+    <string name="Facebook"></string>
+    <string name="cargando_personajes">Cargando participantes ...</string>
+    <string name="esperar">Por favor espere un momento</string>
 
 </resources>

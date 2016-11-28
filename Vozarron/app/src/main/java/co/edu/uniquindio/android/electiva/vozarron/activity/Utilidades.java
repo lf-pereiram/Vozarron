@@ -4,7 +4,21 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
+
+import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
+
+import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
 /**
  * Created by Manuel on 22/11/2016.
@@ -16,15 +30,21 @@ public class Utilidades {
     public final static String LENGUAJE_DE_PREFERENCIA = "languaje_preferences";
     public final static String LENGUAJE_ES = "es";
     public final static String LENGUAJE_EN = "en";
-    public static void cambiarIdioma(Context context){
+    public final static String URL_SERVICIO = "http://192.168.0.12:3000/api/manager";
+    public static final int LISTAR = 1;
+    public static final int AGREGAR = 2;
+    public static final int MODIFICAR = 3;
+    public static final int ELIMINAR = 4;
+
+
+    public static void cambiarIdioma(Context context) {
 
         SharedPreferences prefs = context.getSharedPreferences(MIS_PREFERENCIAS, context.MODE_PRIVATE);
         String language = prefs.getString(LENGUAJE_DE_PREFERENCIA, LENGUAJE_ES);
 
-        if(language.equals(LENGUAJE_ES)){
+        if (language.equals(LENGUAJE_ES)) {
             language = LENGUAJE_EN;
-        }
-        else if(language.equals(LENGUAJE_EN)){
+        } else if (language.equals(LENGUAJE_EN)) {
             language = LENGUAJE_ES;
         }
 
@@ -35,9 +55,9 @@ public class Utilidades {
         obtenerLenguaje(context);
     }
 
-    public static void obtenerLenguaje(Context context){
+    public static void obtenerLenguaje(Context context) {
 
-        SharedPreferences prefs = context.getSharedPreferences(MIS_PREFERENCIAS,context.MODE_PRIVATE);
+        SharedPreferences prefs = context.getSharedPreferences(MIS_PREFERENCIAS, context.MODE_PRIVATE);
         String language = prefs.getString(LENGUAJE_DE_PREFERENCIA, LENGUAJE_ES);
 
         Locale locale = new Locale(language);
@@ -48,5 +68,38 @@ public class Utilidades {
         context.getApplicationContext().getResources().updateConfiguration(config, null);
     }
 
+    public static GsonBuilder conversorDeFecha() {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Date.class, new
+                JsonDeserializer<Date>() {
+                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd",
+                            Locale.ENGLISH);
+
+                    @Override
+                    public Date deserialize(JsonElement json, Type typeOfT,
+                                            JsonDeserializationContext context) throws JsonParseException {
+                        try {
+                            return new Date(String.valueOf(df.parse(json.getAsString())));
+                        } catch (ParseException ex) {
+                            return null;
+                        }
+                    }
+                });
+        return gsonBuilder;
+    }
+
+    public static Participante convertirJSONAParticipante(String jsonParticipante) {
+        Gson gson = conversorDeFecha().create();
+        Participante participante = gson.fromJson(jsonParticipante,
+                Participante.class);
+        return participante;
+    }
+
+    public static String convertirPersonajeAJSON(Participante participante) {
+        Gson gson = new Gson();
+        String json = gson.toJson(participante);
+        //json = json.replace("\"fechaNacimiento\":{}", String.format("\"fechaNacimiento\":\"%s\"", participante.getEdad()));
+        return json;
+    }
 
 }

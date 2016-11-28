@@ -24,6 +24,8 @@
     <string name="escribaEdad">Type your age</string>
     <string name="escribaUrl">Escriba the url</string>
     <string name="entrenadores">Trainers</string>
+    <string name="voto_exitoso">Successful vote! Your vote has been registered, continue voting.</string>
+
 
     <string name="lenguaje_app">En</string>
 </resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/gradient">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
+
+
+    <TextView
+        android:id="@+id/titulo_de_detalle_entrenador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="47dp"
+        android:text="@string/voto_exitoso"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/titulo_de_detalle_entrenador"
+        android:textAlignment="center"
+        android:layout_below="@+id/logo"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btn_facebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="{fa-facebook-square}"
+        android:layout_marginLeft="@dimen/btn_participantes_margin"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/titulo_de_detalle_entrenador"
+        android:layout_toEndOf="@+id/btn_twitter" />
+
+    <Button
+        android:id="@+id/btn_twitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/particpantes"
+        android:layout_marginLeft="@dimen/btn_participantes_margin"
+        android:background="#000000"
+        android:textColor="#ffffff"
+        android:layout_marginStart="56dp"
+        android:layout_alignBaseline="@+id/btn_facebook"
+        android:layout_alignBottom="@+id/btn_facebook"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

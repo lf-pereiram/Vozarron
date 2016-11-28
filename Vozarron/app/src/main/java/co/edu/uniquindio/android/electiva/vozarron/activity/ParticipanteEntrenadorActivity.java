@@ -28,7 +28,7 @@ public class ParticipanteEntrenadorActivity extends AppCompatActivity implements
         participantes = new ArrayList<Participante>();
         listaParticipantes = new ListaParticipantesFragment();
 
-        participantes = listaParticipantes.cargarListaParticipantes();
+       // participantes = listaParticipantes.cargarListaParticipantes();
     }
 
     @Override

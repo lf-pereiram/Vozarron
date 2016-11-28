@@ -24,6 +24,7 @@
     <string name="escribaEdad">Escriba su edad</string>
     <string name="escribaUrl">Escriba la url</string>
     <string name="entrenadores">Entrenadores</string>
+    <string name="voto_exitoso">Voto Exitoso! Tu voto se ha registrado, sigue votando.</string>
 
     <string name="lenguaje_app">Es</string>
 </resources>

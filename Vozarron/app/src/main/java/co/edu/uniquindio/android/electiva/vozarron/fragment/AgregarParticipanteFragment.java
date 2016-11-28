@@ -126,9 +126,9 @@ public class AgregarParticipanteFragment extends DialogFragment {
                 url = campoUrl.getText().toString();
 
                 if(participantes != null){
-                    nuevo = new Participante(participantes.size()+1, nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
+                    nuevo = new Participante(""+participantes.size()+1, nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
                 }else {
-                    nuevo = new Participante(0, nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
+                    nuevo = new Participante("0", nombre, R.drawable.nueva_persona, Integer.parseInt(edad), entrenador, rol, 0, url, true);
                 }
                 ListaParticipantesFragment.participantes.add(nuevo);
                 ListaParticipantesFragment.adaptador.notifyDataSetChanged();

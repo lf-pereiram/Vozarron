@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
 import co.edu.uniquindio.android.electiva.vozarron.activity.DetalleParticipanteActivity;
+import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteActivity;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleParticipanteFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesFragment;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
@@ -27,6 +28,11 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
     private static ArrayList<Participante> participantes;
     private static OnClickAdaptadorDeParticipante listener;
+    private Participante participante;
+
+    public Participante getParticipante() {
+        return participante;
+    }
 
     public AdaptadorParticipante(ArrayList<Participante> participantes, ListaParticipantesFragment listaParticipantesFragment) {
         this.participantes = participantes;
@@ -43,7 +49,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
     @Override
     public void onBindViewHolder(ParticipanteViewHolder holder, int position) {
-        Participante participante = participantes.get(position);
+        participante = participantes.get(position);
         holder.bindParticipante(participante);
     }
 
@@ -91,9 +97,15 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
             p = participante;
         }
 
+        public Participante realizarVotos (){
+            int votos = p.getNumVotos()+1;
+            p.setNumVotos(votos);
+
+            return p;
+        }
+
         @Override
         public void onClick(View v) {
-            //listener.onClickPosition(getAdapterPosition());
 
             if(v.getId() == btnVer.getId()){
                 listener.onClickPosition(getAdapterPosition());
@@ -104,6 +116,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
                 int votos = p.getNumVotos()+1;
                 p.setNumVotos(votos);
                 txtNumeroVotos.setText(Integer.toString(p.getNumVotos()));
+                participantes.add(p);
             }
 
         }

@@ -9,7 +9,7 @@ import android.os.Parcelable;
 
 public class Participante implements Parcelable {
 
-    private int id;
+    private String _id;
     private String nombre;
     private int foto;
     private int edad;
@@ -19,8 +19,19 @@ public class Participante implements Parcelable {
     private String urlVideo;
     private boolean estado;
 
-    public Participante(int id, String nombre, int foto, int edad, int entrenador, int rol, int numVotos, String urlVideo, boolean estado) {
-        this.id = id;
+    public Participante(String nombre, int edad, int entrenador, int rol, int numVotos, String urlVideo, boolean estado, String id) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.entrenador = entrenador;
+        this.rol = rol;
+        this.numVotos = numVotos;
+        this.urlVideo = urlVideo;
+        this.estado = estado;
+        this._id = id;
+    }
+
+    public Participante(String id, String nombre, int foto, int edad, int entrenador, int rol, int numVotos, String urlVideo, boolean estado) {
+        this._id = id;
         this.nombre = nombre;
         this.foto = foto;
         this.edad = edad;
@@ -32,7 +43,7 @@ public class Participante implements Parcelable {
     }
 
     protected Participante(Parcel in) {
-        id = in.readInt();
+        _id = in.readString();
         nombre = in.readString();
         foto = in.readInt();
         edad = in.readInt();
@@ -55,12 +66,12 @@ public class Participante implements Parcelable {
         }
     };
 
-    public int getId() {
-        return id;
+    public String getId() {
+        return _id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(String id) {
+        this._id = id;
     }
 
     public String getNombre() {
@@ -134,7 +145,7 @@ public class Participante implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeString(_id);
         dest.writeString(nombre);
         dest.writeInt(foto);
         dest.writeInt(edad);

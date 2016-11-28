@@ -13,6 +13,7 @@ import co.edu.uniquindio.android.electiva.vozarron.R;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.AgregarParticipanteFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleParticipanteFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesFragment;
+import co.edu.uniquindio.android.electiva.vozarron.fragment.VotacionFragment;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
 public class ParticipanteActivity extends AppCompatActivity implements ListaParticipantesFragment.OnParticipanteSeleccionadoListener {
@@ -80,4 +81,9 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
         Toast.makeText(ParticipanteActivity.this, " Se hizo clic en boton agregar", Toast.LENGTH_LONG).show();
     }
 
+    public void mostrarDialogoVotacion(String nombreClase) {
+        VotacionFragment dialogoVotar = new VotacionFragment();
+        dialogoVotar.setStyle(dialogoVotar.STYLE_NO_TITLE, R.style.DialogoTitulo);
+        dialogoVotar.show(getSupportFragmentManager(), nombreClase);
+    }
 }

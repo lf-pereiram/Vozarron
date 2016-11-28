@@ -2,40 +2,39 @@ package co.edu.uniquindio.android.electiva.vozarron.fragment;
 
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
+import co.edu.uniquindio.android.electiva.vozarron.activity.Utilidades;
 import co.edu.uniquindio.android.electiva.vozarron.util.AdaptadorParticipante;
+import co.edu.uniquindio.android.electiva.vozarron.util.ConexionServicioWeb;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListaParticipantesFragment extends Fragment implements AdaptadorParticipante.OnClickAdaptadorDeParticipante{
+public class ListaParticipantesFragment extends Fragment implements AdaptadorParticipante.OnClickAdaptadorDeParticipante {
 
     private RecyclerView listaParticipantes;
     public static ArrayList<Participante> participantes;
     public static AdaptadorParticipante adaptador;
     private OnParticipanteSeleccionadoListener listener;
-    private ImageButton btnNuevo;
     private View view;
-    private FloatingActionButton btnVotar;
     private ArrayList<Participante> participanteAdaptador;
+    private Participante participante;
 
 
     public ListaParticipantesFragment() {
@@ -58,6 +57,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         adaptador = new AdaptadorParticipante(participantes, this);
 
         view = inflater.inflate(R.layout.fragment_lista_participantes, container, false);
+
         return view;
     }
 
@@ -66,9 +66,11 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         super.onActivityCreated(savedInstanceState);
         listaParticipantes = (RecyclerView) getView().findViewById(R.id.listaParticipantes);
 
-        adaptador = new AdaptadorParticipante(participanteAdaptador, this);
+        /*adaptador = new AdaptadorParticipante(participanteAdaptador, this);
         listaParticipantes.setAdapter(adaptador);
-        listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));*/
+        HiloSecundario hiloSecundario = new HiloSecundario(this.getContext());
+        hiloSecundario.execute(Utilidades.LISTAR);
     }
 
     @Override
@@ -76,8 +78,12 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        participantes = cargarListaParticipantes();
-        setParticipantes(participantes);
+        HiloSecundario hiloSecundario = new HiloSecundario(this.getContext());
+        hiloSecundario.setParticipante(participante);
+        hiloSecundario.execute(Utilidades.AGREGAR);
+
+        /*participantes = cargarListaParticipantes();
+        setParticipantes(participantes);*/
     }
 
     @Override
@@ -86,7 +92,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
         Activity activity;
 
-        if (context instanceof Activity){
+        if (context instanceof Activity) {
             activity = (Activity) context;
             try {
                 listener = (OnParticipanteSeleccionadoListener) activity;
@@ -105,24 +111,24 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         void onParticipanteSeleccionado(int position);
     }
 
-    public ArrayList<Participante> cargarListaParticipantes() {
-        int [] fotos={ R.drawable.andrea, R.drawable.carlos, R.drawable.juana, R.drawable.martin, R.drawable.susana,
+   /* public ArrayList<Participante> cargarListaParticipantes() {
+        int[] fotos = {R.drawable.andrea, R.drawable.carlos, R.drawable.juana, R.drawable.martin, R.drawable.susana,
                 R.drawable.jose, R.drawable.camila, R.drawable.hernesto, R.drawable.valentina, R.drawable.alejandra,
                 R.drawable.rafael, R.drawable.ralph, R.drawable.jennifer, R.drawable.lindsay, R.drawable.andrew};
 
-        String [] nombres= {"Jackie", "Carl","Helen", "Mike","Megan",
-                "Joey", "Samantha",  "Bob", "Barb","Linda",
-                "Ralph","Andrew", "Jennifer", "Lindsay","Ken" };
+        String[] nombres = {"Jackie", "Carl", "Helen", "Mike", "Megan",
+                "Joey", "Samantha", "Bob", "Barb", "Linda",
+                "Ralph", "Andrew", "Jennifer", "Lindsay", "Ken"};
 
-        int [] votos ={1000, 3444, 6532, 5432, 5844,
-                1234, 9483,   48395, 58500, 56475,
+        int[] votos = {1000, 3444, 6532, 5432, 5844,
+                1234, 9483, 48395, 58500, 56475,
                 76854, 38384, 38354, 4898, 15946};
 
-        int [] edad  ={24, 30, 17, 22, 22,
-                23,48, 50, 21, 18,
+        int[] edad = {24, 30, 17, 22, 22,
+                23, 48, 50, 21, 18,
                 35, 28, 27, 32, 30};
 
-        String url="https://www.youtube.com/results?search_query=the+voice+audtion+";
+        String url = "https://www.youtube.com/results?search_query=the+voice+audtion+";
 
         participantes = new ArrayList<>();
 
@@ -145,17 +151,78 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         participanteAdaptador = participantes;
 
         return participantes;
-    }
+    }*/
 
-    public ArrayList<Participante> listarParticipantesPorEntrenador (int idEntrenador){
+    public ArrayList<Participante> listarParticipantesPorEntrenador(int idEntrenador) {
         ArrayList<Participante> nuevo = new ArrayList<>();
 
-        for (int i=0; i<participantes.size(); i++){
-            if(participantes.get(i).getEntrenador() == idEntrenador){
+        for (int i = 0; i < participantes.size(); i++) {
+            if (participantes.get(i).getEntrenador() == idEntrenador) {
                 nuevo.add(participantes.get(i));
             }
         }
         participanteAdaptador = nuevo;
         return nuevo;
+    }
+
+    public class HiloSecundario extends AsyncTask<Integer, Integer, Integer> {
+        private ProgressDialog progress;
+        private Context context;
+        private Participante participanteH;
+
+        public Participante getParticipante() {
+            return participanteH;
+        }
+
+        public void setParticipante(Participante participante) {
+            this.participanteH = participante;
+        }
+
+        public HiloSecundario(Context context) {
+            this.context = context;
+            participanteH = null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progress = ProgressDialog.show(context, context.getString(R.string.cargando_personajes), context.getString(R.string.esperar), true);
+        }
+
+        @Override
+        protected Integer doInBackground(Integer... params) {
+            if (params[0] == Utilidades.LISTAR) {
+                setParticipantes(ConexionServicioWeb.getListaParticipantes());
+            } else if (params[0] == Utilidades.AGREGAR) {
+                String personajeJSON =
+                        Utilidades.convertirPersonajeAJSON(participanteH);
+                participanteH =
+                        ConexionServicioWeb.agregarParticipanteAlServicio(personajeJSON);
+            }
+
+            return params[0];
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
+
+            if (integer == Utilidades.LISTAR) {
+                Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
+                if (adaptador == null) {
+                    adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
+                    listaParticipantes.setAdapter(adaptador);
+                    listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                }
+            } else if (integer == Utilidades.AGREGAR) {
+                if (participanteH != null) {
+                    participantes.add(participante);
+                    adaptador.notifyItemInserted(participantes.size() - 1);
+                    participanteH = null;
+                }
+            }
+
+            progress.dismiss();
+        }
     }
 }
