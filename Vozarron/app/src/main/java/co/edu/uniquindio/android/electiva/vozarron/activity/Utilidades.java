@@ -30,7 +30,7 @@ public class Utilidades {
     public final static String LENGUAJE_DE_PREFERENCIA = "languaje_preferences";
     public final static String LENGUAJE_ES = "es";
     public final static String LENGUAJE_EN = "en";
-    public final static String URL_SERVICIO = "http://192.168.0.12:3000/api/manager";
+    public final static String URL_SERVICIO = "http://10.0.2.2:3000/api/manager";
     public static final int LISTAR = 1;
     public static final int AGREGAR = 2;
     public static final int MODIFICAR = 3;
@@ -89,7 +89,7 @@ public class Utilidades {
     }
 
     public static Participante convertirJSONAParticipante(String jsonParticipante) {
-        Gson gson = conversorDeFecha().create();
+        Gson gson = new Gson();
         Participante participante = gson.fromJson(jsonParticipante,
                 Participante.class);
         return participante;
@@ -98,8 +98,6 @@ public class Utilidades {
     public static String convertirPersonajeAJSON(Participante participante) {
         Gson gson = new Gson();
         String json = gson.toJson(participante);
-        //json = json.replace("\"fechaNacimiento\":{}", String.format("\"fechaNacimiento\":\"%s\"", participante.getEdad()));
         return json;
     }
-
 }

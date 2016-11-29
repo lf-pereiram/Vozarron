@@ -209,11 +209,10 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
             if (integer == Utilidades.LISTAR) {
                 Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
-                if (adaptador == null) {
+                if (adaptador == null)
                     adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
-                    listaParticipantes.setAdapter(adaptador);
-                    listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                }
+                listaParticipantes.setAdapter(adaptador);
+                listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             } else if (integer == Utilidades.AGREGAR) {
                 if (participanteH != null) {
                     participantes.add(participante);
