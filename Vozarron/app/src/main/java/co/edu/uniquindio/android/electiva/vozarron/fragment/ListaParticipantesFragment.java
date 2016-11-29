@@ -196,8 +196,8 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
             } else if (params[0] == Utilidades.AGREGAR) {
                 String personajeJSON =
                         Utilidades.convertirPersonajeAJSON(participanteH);
-                participanteH =
-                        ConexionServicioWeb.agregarParticipanteAlServicio(personajeJSON);
+              //  participanteH =
+              //          ConexionServicioWeb.agregarParticipanteAlServicio(personajeJSON);
             }
 
             return params[0];
@@ -209,7 +209,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
             if (integer == Utilidades.LISTAR) {
                 Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
-                if (adaptador == null)
+
                     adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
                 listaParticipantes.setAdapter(adaptador);
                 listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
