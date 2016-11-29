@@ -4,28 +4,16 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import co.edu.uniquindio.android.electiva.vozarron.activity.Utilidades;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.client.HttpClient;
-import cz.msebera.android.httpclient.client.methods.HttpDelete;
 import cz.msebera.android.httpclient.client.methods.HttpGet;
-import cz.msebera.android.httpclient.client.methods.HttpPost;
-import cz.msebera.android.httpclient.entity.StringEntity;
 import cz.msebera.android.httpclient.impl.client.HttpClientBuilder;
 import cz.msebera.android.httpclient.util.EntityUtils;
 
@@ -36,7 +24,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 public class ConexionServicioWeb {
 
     public static ArrayList<Participante> getListaParticipantes() {
-        ArrayList<Participante> participantes = new ArrayList<>();
+        ArrayList<Participante> participantes;
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(Utilidades.URL_SERVICIO);
         request.setHeader("content-type", "application/json");

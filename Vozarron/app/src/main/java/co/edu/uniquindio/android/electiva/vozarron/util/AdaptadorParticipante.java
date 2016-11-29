@@ -1,23 +1,17 @@
 package co.edu.uniquindio.android.electiva.vozarron.util;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
-import co.edu.uniquindio.android.electiva.vozarron.activity.DetalleParticipanteActivity;
-import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteActivity;
-import co.edu.uniquindio.android.electiva.vozarron.fragment.DetalleParticipanteFragment;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesFragment;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
@@ -109,6 +103,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
         public void onClick(View v) {
 
             if(v.getId() == btnVer.getId()){
+                Log.v("Posicióm-adaptador",""+getAdapterPosition());
                 listener.onClickPosition(getAdapterPosition());
             }
 
@@ -119,7 +114,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
                 txtNumeroVotos.setText(Integer.toString(p.getNumVotos()));
                 participantes.add(p);
 
-                //((ParticipanteActivity) ).mostrarDialogoVotacion();
+
             }
 
         }

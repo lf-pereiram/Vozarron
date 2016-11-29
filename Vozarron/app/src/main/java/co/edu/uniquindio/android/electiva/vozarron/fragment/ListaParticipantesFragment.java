@@ -104,6 +104,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
     @Override
     public void onClickPosition(int pos) {
+        Log.v("POSICION","POSICION: "+pos);
         listener.onParticipanteSeleccionado(pos);
     }
 
@@ -211,8 +212,10 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
                 Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
 
                     adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
+                setParticipantes(participantes);
                 listaParticipantes.setAdapter(adaptador);
                 listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
             } else if (integer == Utilidades.AGREGAR) {
                 if (participanteH != null) {
                     participantes.add(participante);

@@ -48,16 +48,18 @@ public class ParticipanteActivity extends AppCompatActivity implements ListaPart
     @Override
     public void onParticipanteSeleccionado(int position) {
 
+
         boolean esFragmento =
                 getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_participante) != null;
         if (esFragmento) {
+
             ((DetalleParticipanteFragment)
                     getSupportFragmentManager().findFragmentById(R.id.fragmento_detalle_participante))
-                    .mostrarParticipante(participantes.get(position));
+                    .mostrarParticipante(listaParticipantesFragment.getParticipantes().get(position));
         } else {
             Intent intent = new Intent(this,
                     DetalleParticipanteActivity.class);
-            intent.putExtra("participante", participantes.get(position));
+            intent.putExtra("participante",listaParticipantesFragment.getParticipantes().get(position));
             startActivity(intent);
         }
     }
