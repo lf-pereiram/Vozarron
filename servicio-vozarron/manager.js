@@ -2,7 +2,11 @@ var mongoose = require("mongoose");
 
 //permite cargar el modelo generado
 var Participante  = mongoose.model("Participante");
+var Entrenador = mongoose.model("Entrenador");
 
+/*
+ ** Consultas en la base de datos sobre los participantes
+*/
 //permite listar todos los Participantes en la base de datos
 exports.buscarTodosLosParticipantes = function(req, res) {
   Participante.find(function(err, Participantes) {
@@ -17,9 +21,10 @@ exports.agregarParticipante = function(req, res) {
   var participante = new Participante({
     nombre:    req.body.nombre,
     edad:     req.body.edad,
+    entrenador: req.body.entrenador,
     rol:  req.body.rol,
     numVotos: req.body.numVotos,
-    url:   req.body.url,
+    urlVideo:   req.body.urlVideo,
     estado: req.body.estado
   });
 
@@ -40,9 +45,12 @@ exports.buscarPorID = function(req, res) {
 exports.actualizarParticipante = function(req, res) {
   Participante.findById(req.params.id, function(err, Participante) {
     Participante.nombre   = req.body.nombre;
-    Participante.fechaNacimiento    = req.body.fechaNacimiento;
-    Participante.historia = req.body.historia;
-    Participante.url  = req.body.url;
+    Participante.edad    = req.body.edad;
+    Participante.entrenador = req.body.entrenador;
+    Participante.rol = req.body.rol;
+    Participante.numVotos = req.body.numVotos;
+    Participante.urlVideo  = req.body.urlVideo;
+    Participante.estado = req.body.estado;
 
     Participante.save(function(err) {
       if(err) return res.status(500).send(err.message);
