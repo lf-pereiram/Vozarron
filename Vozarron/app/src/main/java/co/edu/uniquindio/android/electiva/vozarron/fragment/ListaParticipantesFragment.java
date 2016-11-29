@@ -54,7 +54,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        adaptador = new AdaptadorParticipante(participantes, this);
+        adaptador = new AdaptadorParticipante(participantes, this,getContext());
 
         view = inflater.inflate(R.layout.fragment_lista_participantes, container, false);
 
@@ -211,7 +211,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
             if (integer == Utilidades.LISTAR) {
                 Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
 
-                    adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
+                    adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this,getContext());
                 setParticipantes(participantes);
                 listaParticipantes.setAdapter(adaptador);
                 listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));

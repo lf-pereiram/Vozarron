@@ -1,5 +1,6 @@
 package co.edu.uniquindio.android.electiva.vozarron.util;
 
+import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.edu.uniquindio.android.electiva.vozarron.R;
+import co.edu.uniquindio.android.electiva.vozarron.activity.ParticipanteActivity;
 import co.edu.uniquindio.android.electiva.vozarron.fragment.ListaParticipantesFragment;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 
@@ -24,14 +26,16 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
     private static ArrayList<Participante> participantes;
     private static OnClickAdaptadorDeParticipante listener;
     private Participante participante;
+    private static Context context;
 
     public Participante getParticipante() {
         return participante;
     }
 
-    public AdaptadorParticipante(ArrayList<Participante> participantes, ListaParticipantesFragment listaParticipantesFragment) {
+    public AdaptadorParticipante(ArrayList<Participante> participantes, ListaParticipantesFragment listaParticipantesFragment, Context context) {
         this.participantes = participantes;
         listener = (OnClickAdaptadorDeParticipante) listaParticipantesFragment;
+        this.context=context;
     }
 
     @Override
@@ -86,7 +90,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
 
             txtNombreParticipante.setText(participante.getNombre());
             txtRol.setText(participante.rolToString(participante.getRol()));
-            fotoParticipante.setImageResource(participante.getFoto());
+          //  fotoParticipante.setImageResource(participante.getFoto());
             txtNumeroVotos.setText(Integer.toString(participante.getNumVotos()));
 
             p = participante;
@@ -113,7 +117,7 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
                 p.setNumVotos(votos);
                 txtNumeroVotos.setText(Integer.toString(p.getNumVotos()));
                 participantes.add(p);
-
+                ((ParticipanteActivity) context ).mostrarDialogoVotacion(ListaParticipantesFragment.class.getName());
 
             }
 

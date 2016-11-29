@@ -48,7 +48,7 @@ public class DetalleParticipanteFragment extends Fragment implements View.OnClic
         txtRol.setText(participante.rolToString(participante.getRol()));
 
         foto = (ImageView) getView().findViewById(R.id.imagen_detalle);
-        foto.setImageResource(participante.getFoto());
+      //  foto.setImageResource(participante.getFoto());
 
         urlVideo = (Button) getView().findViewById(R.id.btn_url);
         urlVideo.setOnClickListener(this);
