@@ -1,5 +1,6 @@
 package co.edu.uniquindio.android.electiva.vozarron.util;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
@@ -117,6 +118,8 @@ public class AdaptadorParticipante extends RecyclerView.Adapter<AdaptadorPartici
                 p.setNumVotos(votos);
                 txtNumeroVotos.setText(Integer.toString(p.getNumVotos()));
                 participantes.add(p);
+
+                //((ParticipanteActivity) ).mostrarDialogoVotacion();
             }
 
         }

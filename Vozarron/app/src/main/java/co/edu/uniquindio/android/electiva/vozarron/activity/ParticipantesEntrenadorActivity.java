@@ -37,7 +37,7 @@ public class ParticipantesEntrenadorActivity extends AppCompatActivity implement
 
         listaParticipantesFragment = (ListaParticipantesFragment) getSupportFragmentManager().findFragmentById(R.id.fragmento_lista_participantes);
 
-        participantes = listaParticipantesFragment.listarParticipantesPorEntrenador(id);
+        //participantes = listaParticipantesFragment.listarParticipantesPorEntrenador(id);
         Log.v("Lista", ""+participantes.size());
     }
 

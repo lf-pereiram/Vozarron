@@ -22,6 +22,7 @@ import co.edu.uniquindio.android.electiva.vozarron.activity.Utilidades;
 import co.edu.uniquindio.android.electiva.vozarron.vo.Participante;
 import cz.msebera.android.httpclient.HttpResponse;
 import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.methods.HttpDelete;
 import cz.msebera.android.httpclient.client.methods.HttpGet;
 import cz.msebera.android.httpclient.client.methods.HttpPost;
 import cz.msebera.android.httpclient.entity.StringEntity;
@@ -39,35 +40,29 @@ public class ConexionServicioWeb {
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpGet request = new HttpGet(Utilidades.URL_SERVICIO);
         request.setHeader("content-type", "application/json");
+
         try {
             Type listType = new TypeToken<ArrayList<Participante>>() {
             }.getType();
             GsonBuilder gsonBuilder = new GsonBuilder();
-            gsonBuilder.registerTypeAdapter(Date.class, new JsonDeserializer<Date>() {
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
-                @Override
-                public Date deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-                    try {
-                        return df.parse(json.getAsString());
-                    } catch (ParseException ex) {
-                        return null;
-                    }
-                }
-            });
+
             HttpResponse resp = httpClient.execute(request);
             String respStr = EntityUtils.toString(resp.getEntity());
+            Log.v("Listar-WParticipantes", "participantes ... " + respStr);
             Gson gson = gsonBuilder.create();
             participantes = gson.fromJson(respStr, listType);
-            Log.v("Listar-WParticipantes", "participantes ... " + participantes.get(0).getId());
+            Log.v("Listar-WParticipantes", "participantes ... " + participantes.size());
+
         } catch (Exception e) {
+            e.printStackTrace();
             Log.v("Listar-WebService", e.getMessage());
             return null;
         }
         return participantes;
     }
 
-    public static Participante agregarParticipanteAlServicio(String
+    /*public static Participante agregarParticipanteAlServicio(String
                                                                      jsonParticipante) {
         HttpClient httpClient = HttpClientBuilder.create().build();
         HttpPost post = new HttpPost(Utilidades.URL_SERVICIO);
@@ -80,6 +75,7 @@ public class ConexionServicioWeb {
             HttpResponse respose = httpClient.execute(post);
             String resp = EntityUtils.toString(respose.getEntity());
             participante = Utilidades.convertirJSONAParticipante(resp);
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("ServicioRest", "Error! insercion de personaje " +
@@ -87,5 +83,5 @@ public class ConexionServicioWeb {
             return null;
         }
         return participante;
-    }
+    }*/
 }

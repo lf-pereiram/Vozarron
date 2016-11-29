@@ -8,9 +8,10 @@ Schema   = mongoose.Schema;
  var participanteSchema = new Schema({
  	nombre:    { type: String },
  	edad:     { type: Number },
+ 	entrenador: { type: Number},
  	rol: 	  { type: Number},
  	numVotos: { type: Number},
- 	url:   { type: String },
+ 	urlVideo:   { type: String },
  	estado:  { type: Boolean }
 });
 

@@ -14,12 +14,6 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Utilidades.obtenerLenguaje(this);
         setContentView(R.layout.activity_principal);
-
-        /*try {
-            Thread.sleep(1000000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
     }
 
     public void verEntrenadores (View view) {
