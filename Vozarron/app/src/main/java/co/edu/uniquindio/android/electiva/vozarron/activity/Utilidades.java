@@ -3,6 +3,7 @@ package co.edu.uniquindio.android.electiva.vozarron.activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,7 +31,7 @@ public class Utilidades {
     public final static String LENGUAJE_DE_PREFERENCIA = "languaje_preferences";
     public final static String LENGUAJE_ES = "es";
     public final static String LENGUAJE_EN = "en";
-    public final static String URL_SERVICIO = "http://192.168.0.12:3000/api/manager";
+    public final static String URL_SERVICIO = "http://10.0.2.2:3000/api/manager";
     public static final int LISTAR = 1;
     public static final int AGREGAR = 2;
     public static final int MODIFICAR = 3;
@@ -68,37 +69,16 @@ public class Utilidades {
         context.getApplicationContext().getResources().updateConfiguration(config, null);
     }
 
-    public static GsonBuilder conversorDeFecha() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(Date.class, new
-                JsonDeserializer<Date>() {
-                    DateFormat df = new SimpleDateFormat("yyyy-MM-dd",
-                            Locale.ENGLISH);
-
-                    @Override
-                    public Date deserialize(JsonElement json, Type typeOfT,
-                                            JsonDeserializationContext context) throws JsonParseException {
-                        try {
-                            return new Date(String.valueOf(df.parse(json.getAsString())));
-                        } catch (ParseException ex) {
-                            return null;
-                        }
-                    }
-                });
-        return gsonBuilder;
-    }
-
-    public static Participante convertirJSONAParticipante(String jsonParticipante) {
-        Gson gson = conversorDeFecha().create();
-        Participante participante = gson.fromJson(jsonParticipante,
-                Participante.class);
+   public static Participante convertirJSONAParticipante(String jsonParticipante) {
+        Gson gson = new Gson();
+        Participante participante = gson.fromJson(jsonParticipante, Participante.class);
+        Log.v("JSON-Participante", " participantes: "+participante);
         return participante;
     }
 
     public static String convertirPersonajeAJSON(Participante participante) {
         Gson gson = new Gson();
         String json = gson.toJson(participante);
-        //json = json.replace("\"fechaNacimiento\":{}", String.format("\"fechaNacimiento\":\"%s\"", participante.getEdad()));
         return json;
     }
 

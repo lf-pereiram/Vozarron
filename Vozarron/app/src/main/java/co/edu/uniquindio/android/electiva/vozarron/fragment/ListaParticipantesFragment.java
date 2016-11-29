@@ -151,7 +151,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         participanteAdaptador = participantes;
 
         return participantes;
-    }*/
+    }
 
     public ArrayList<Participante> listarParticipantesPorEntrenador(int idEntrenador) {
         ArrayList<Participante> nuevo = new ArrayList<>();
@@ -163,7 +163,7 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
         }
         participanteAdaptador = nuevo;
         return nuevo;
-    }
+    }*/
 
     public class HiloSecundario extends AsyncTask<Integer, Integer, Integer> {
         private ProgressDialog progress;
@@ -191,14 +191,17 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
         @Override
         protected Integer doInBackground(Integer... params) {
+
             if (params[0] == Utilidades.LISTAR) {
                 setParticipantes(ConexionServicioWeb.getListaParticipantes());
-            } else if (params[0] == Utilidades.AGREGAR) {
+                Log.v("participantes ......",""+ConexionServicioWeb.getListaParticipantes().size());
+            }
+            /*else if (params[0] == Utilidades.AGREGAR) {
                 String personajeJSON =
                         Utilidades.convertirPersonajeAJSON(participanteH);
                 participanteH =
                         ConexionServicioWeb.agregarParticipanteAlServicio(personajeJSON);
-            }
+            }*/
 
             return params[0];
         }
@@ -209,14 +212,14 @@ public class ListaParticipantesFragment extends Fragment implements AdaptadorPar
 
             if (integer == Utilidades.LISTAR) {
                 Log.v("Personajes-Onpost", "Personajes cargados... " + participantes.get(0).getId());
-                if (adaptador == null) {
+                if (adaptador == null)
                     adaptador = new AdaptadorParticipante(participantes, ListaParticipantesFragment.this);
-                    listaParticipantes.setAdapter(adaptador);
-                    listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                }
+                Log.v("adaptador", ""+adaptador);
+                listaParticipantes.setAdapter(adaptador);
+                listaParticipantes.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
             } else if (integer == Utilidades.AGREGAR) {
                 if (participanteH != null) {
-                    participantes.add(participante);
+                    participantes.add(participanteH);
                     adaptador.notifyItemInserted(participantes.size() - 1);
                     participanteH = null;
                 }

@@ -19,6 +19,9 @@ public class Participante implements Parcelable {
     private String urlVideo;
     private boolean estado;
 
+    public Participante() {
+    }
+
     public Participante(String nombre, int edad, int entrenador, int rol, int numVotos, String urlVideo, boolean estado, String id) {
         this.nombre = nombre;
         this.edad = edad;
